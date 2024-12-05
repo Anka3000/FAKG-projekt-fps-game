@@ -1,0 +1,34 @@
+{
+    "name": "playerController",
+    "maps": [
+        {
+            "name": "On Foot",
+            "id": "1cea0738-9e49-44ff-91fb-52cf98cee6be",
+            "actions": [
+                {
+                    "name": "Movement",
+                    "type": "Button",
+                    "id": "e1eb6845-106a-481e-b039-163bb0dd7af3",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "315c3497-ff2d-4ef7-af76-319242900b1f",
+                    "path": "",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Movement",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
