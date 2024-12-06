@@ -438,6 +438,38 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!1 &430567068 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5295171629545143457, guid: 6b38e8055c6bda544b2c01186a0f0fbd, type: 3}
+  m_PrefabInstance: {fileID: 744767887703601158}
+  m_PrefabAsset: {fileID: 0}
+--- !u!54 &430567073
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 430567068}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &463724472
 GameObject:
   m_ObjectHideFlags: 0
@@ -889,6 +921,38 @@ MonoBehaviour:
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
   m_SoftShadowQuality: 0
+--- !u!1 &834656744 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8830764129723524637, guid: 6b38e8055c6bda544b2c01186a0f0fbd, type: 3}
+  m_PrefabInstance: {fileID: 744767887703601158}
+  m_PrefabAsset: {fileID: 0}
+--- !u!54 &834656749
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 834656744}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0
@@ -1221,6 +1285,38 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1839784062 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 270337376706770629, guid: 6b38e8055c6bda544b2c01186a0f0fbd, type: 3}
+  m_PrefabInstance: {fileID: 744767887703601158}
+  m_PrefabAsset: {fileID: 0}
+--- !u!54 &1839784067
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1839784062}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &1956586186
 GameObject:
   m_ObjectHideFlags: 0
@@ -1640,7 +1736,16 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8830764129723524637, guid: 6b38e8055c6bda544b2c01186a0f0fbd, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 834656749}
+    - targetCorrespondingSourceObject: {fileID: 270337376706770629, guid: 6b38e8055c6bda544b2c01186a0f0fbd, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1839784067}
+    - targetCorrespondingSourceObject: {fileID: 5295171629545143457, guid: 6b38e8055c6bda544b2c01186a0f0fbd, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 430567073}
   m_SourcePrefab: {fileID: 100100000, guid: 6b38e8055c6bda544b2c01186a0f0fbd, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
