@@ -884,6 +884,8 @@ MonoBehaviour:
   ammoText: {fileID: 463724474}
   pointsText: {fileID: 2043675271}
   timeText: {fileID: 428369594}
+  gameOverText: {fileID: 921322948}
+  restartButton: {fileID: 1339759871}
 --- !u!143 &591558111
 CharacterController:
   m_ObjectHideFlags: 0
