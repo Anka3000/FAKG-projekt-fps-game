@@ -1,6 +1,5 @@
 using System.Collections;
 using UnityEngine;
-using static UnityEngine.ParticleSystem;
 
 public class Bullet : MonoBehaviour
 {
@@ -10,17 +9,30 @@ public class Bullet : MonoBehaviour
     public CameraController orientation;
 
     private Vector3 startPosition;
-
-    public GameObject Particles;
+    private Vector3 velocity;
+    private float startTime;
 
     void Awake()
     {
         startPosition = transform.position;
-        Destroy(gameObject, life);
+        startTime = Time.time;
     }
 
     void Update()
     {
+        // Przemieszczanie pocisku bez u¿ycia Rigidbody
+        float elapsedTime = Time.time - startTime;
+        if (elapsedTime < life) // Sprawdzamy, czy czas ¿ycia pocisku jeszcze nie min¹³
+        {
+            // Przemieszczamy pocisk w kierunku, w którym by³ pocz¹tkowo ustawiony
+            transform.Translate(velocity * Time.deltaTime, Space.World);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+
+        // Sprawdzamy, czy pocisk przekroczy³ maksymalny zasiêg
         if (Vector3.Distance(startPosition, transform.position) >= maxRange)
         {
             Destroy(gameObject);
@@ -38,6 +50,7 @@ public class Bullet : MonoBehaviour
 
         else if (collision.gameObject.CompareTag("Box"))
         {
+            Debug.Log("Hit a Box!");  // Dodaj log, aby sprawdziæ, czy trafiono w boksa
             // Find the "Attack" script on the player or wherever it is assigned.
             Attack attackScript = FindObjectOfType<Attack>();
             if (attackScript != null)
@@ -50,15 +63,12 @@ public class Bullet : MonoBehaviour
         {
             Destroy(collision.gameObject);
         }
-        EffectOnHit();
         Destroy(gameObject);
     }
-
-    void EffectOnHit()
+    public void SetVelocity(Vector3 velocity)
     {
-        GameObject explosion = Instantiate(Particles, transform.position, Quaternion.identity);
+        this.velocity = velocity;
     }
-
     public void ChildMethod()
     {
         Debug.Log("Child method called!");
