@@ -38,11 +38,10 @@ public class Bullet : MonoBehaviour
 
         else if (collision.gameObject.CompareTag("Box"))
         {
-            // Find the "Attack" script on the player or wherever it is assigned.
             Attack attackScript = FindObjectOfType<Attack>();
             if (attackScript != null)
             {
-                attackScript.AddPoints(100); // Increase points by 50 for each hit.
+                attackScript.AddPoints(100);
             }
         }
 
