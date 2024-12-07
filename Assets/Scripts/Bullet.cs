@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using static UnityEngine.ParticleSystem;
 
 public class Bullet : MonoBehaviour
 {
@@ -9,6 +10,8 @@ public class Bullet : MonoBehaviour
     public CameraController orientation;
 
     private Vector3 startPosition;
+
+    public GameObject Particles;
 
     void Awake()
     {
@@ -47,7 +50,13 @@ public class Bullet : MonoBehaviour
         {
             Destroy(collision.gameObject);
         }
+        EffectOnHit();
         Destroy(gameObject);
+    }
+
+    void EffectOnHit()
+    {
+        GameObject explosion = Instantiate(Particles, transform.position, Quaternion.identity);
     }
 
     public void ChildMethod()

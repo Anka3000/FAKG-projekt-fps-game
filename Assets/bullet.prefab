@@ -119,7 +119,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0bf92054c00ef244bb1e3efadcbf9c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  life: 1
+  cameraPos: {fileID: 0}
+  orientation: {fileID: 0}
+  Particles: {fileID: 7683250054657833369, guid: 7072c970e785de344b0ef4fec0f10d69, type: 3}
 --- !u!54 &-6640337085859804130
 Rigidbody:
   m_ObjectHideFlags: 0
