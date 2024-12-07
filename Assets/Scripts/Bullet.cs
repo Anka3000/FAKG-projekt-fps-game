@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using static UnityEngine.ParticleSystem;
 
 public class Bullet : MonoBehaviour
 {
@@ -9,30 +10,17 @@ public class Bullet : MonoBehaviour
     public CameraController orientation;
 
     private Vector3 startPosition;
-    private Vector3 velocity;
-    private float startTime;
+
+    public GameObject Particles;
 
     void Awake()
     {
         startPosition = transform.position;
-        startTime = Time.time;
+        Destroy(gameObject, life);
     }
 
     void Update()
     {
-        // Przemieszczanie pocisku bez u¿ycia Rigidbody
-        float elapsedTime = Time.time - startTime;
-        if (elapsedTime < life) // Sprawdzamy, czy czas ¿ycia pocisku jeszcze nie min¹³
-        {
-            // Przemieszczamy pocisk w kierunku, w którym by³ pocz¹tkowo ustawiony
-            transform.Translate(velocity * Time.deltaTime, Space.World);
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
-
-        // Sprawdzamy, czy pocisk przekroczy³ maksymalny zasiêg
         if (Vector3.Distance(startPosition, transform.position) >= maxRange)
         {
             Destroy(gameObject);
@@ -50,12 +38,11 @@ public class Bullet : MonoBehaviour
 
         else if (collision.gameObject.CompareTag("Box"))
         {
-            Debug.Log("Hit a Box!");  // Dodaj log, aby sprawdziæ, czy trafiono w boksa
             // Find the "Attack" script on the player or wherever it is assigned.
             Attack attackScript = FindObjectOfType<Attack>();
             if (attackScript != null)
             {
-                attackScript.AddPoints(50); // Increase points by 50 for each hit.
+                attackScript.AddPoints(100); // Increase points by 50 for each hit.
             }
         }
 
@@ -63,12 +50,15 @@ public class Bullet : MonoBehaviour
         {
             Destroy(collision.gameObject);
         }
+        EffectOnHit();
         Destroy(gameObject);
     }
-    public void SetVelocity(Vector3 velocity)
+
+    void EffectOnHit()
     {
-        this.velocity = velocity;
+        GameObject explosion = Instantiate(Particles, transform.position, Quaternion.identity);
     }
+
     public void ChildMethod()
     {
         Debug.Log("Child method called!");
