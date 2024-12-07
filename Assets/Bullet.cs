@@ -9,15 +9,30 @@ public class Bullet : MonoBehaviour
     public CameraController orientation;
 
     private Vector3 startPosition;
+    private Vector3 velocity;
+    private float startTime;
 
     void Awake()
     {
         startPosition = transform.position;
-        Destroy(gameObject, life);
+        startTime = Time.time;
     }
 
     void Update()
     {
+        // Przemieszczanie pocisku bez użycia Rigidbody
+        float elapsedTime = Time.time - startTime;
+        if (elapsedTime < life) // Sprawdzamy, czy czas życia pocisku jeszcze nie minął
+        {
+            // Przemieszczamy pocisk w kierunku, w którym był początkowo ustawiony
+            transform.Translate(velocity * Time.deltaTime, Space.World);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+
+        // Sprawdzamy, czy pocisk przekroczył maksymalny zasięg
         if (Vector3.Distance(startPosition, transform.position) >= maxRange)
         {
             Destroy(gameObject);
@@ -35,6 +50,7 @@ public class Bullet : MonoBehaviour
 
         else if (collision.gameObject.CompareTag("Box"))
         {
+            Debug.Log("Hit a Box!");  // Dodaj log, aby sprawdzić, czy trafiono w boksa
             // Find the "Attack" script on the player or wherever it is assigned.
             Attack attackScript = FindObjectOfType<Attack>();
             if (attackScript != null)
@@ -49,7 +65,10 @@ public class Bullet : MonoBehaviour
         }
         Destroy(gameObject);
     }
-
+    public void SetVelocity(Vector3 velocity)
+    {
+        this.velocity = velocity;
+    }
     public void ChildMethod()
     {
         Debug.Log("Child method called!");
