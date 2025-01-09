@@ -10,7 +10,7 @@ public class Attack : MonoBehaviour
     public TMP_Text ammoText;
     public TMP_Text pointsText;
     public TMP_Text timeText;
-    public TMP_Text gameOverText;
+    public GameObject GameOverPanel;
     public GameObject restartButton;
 
     private int maxAmmo = 25;
@@ -32,7 +32,7 @@ public class Attack : MonoBehaviour
         UpdatePointsUI();
         UpdateTimeUI();
 
-        gameOverText.gameObject.SetActive(false);
+        GameOverPanel.SetActive(false);
         restartButton.SetActive(false);
 
         Cursor.visible = false;
@@ -136,10 +136,9 @@ public class Attack : MonoBehaviour
     {
         isGameOver = true;
 
-        if (gameOverText != null)
+        if (GameOverPanel != null)
         {
-            gameOverText.text = message;
-            gameOverText.gameObject.SetActive(true);
+            GameOverPanel.gameObject.SetActive(true);
         }
 
         if (restartButton != null)
@@ -166,9 +165,10 @@ public class Attack : MonoBehaviour
         UpdatePointsUI();
         UpdateTimeUI();
 
-        gameOverText.gameObject.SetActive(false);
+        GameOverPanel.SetActive(false);
         restartButton.SetActive(false);
 
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
+
 }
