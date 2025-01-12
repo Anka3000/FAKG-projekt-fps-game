@@ -6,8 +6,6 @@ public class Bullet : MonoBehaviour
 {
     private float life = 3.0f;
     private float maxRange = 50.0f;
-    public CameraMove cameraPos;
-    public CameraController orientation;
 
     private Vector3 startPosition;
 
@@ -45,10 +43,7 @@ public class Bullet : MonoBehaviour
             }
         }
 
-        if (collision.gameObject != cameraPos && collision.gameObject != orientation)
-        {
-            Destroy(collision.gameObject);
-        }
+        Destroy(collision.gameObject);
         EffectOnHit();
         Destroy(gameObject);
     }
@@ -56,6 +51,7 @@ public class Bullet : MonoBehaviour
     void EffectOnHit()
     {
         GameObject explosion = Instantiate(Particles, transform.position, Quaternion.identity);
+        Destroy(explosion, 1f);
     }
 
     public void ChildMethod()

@@ -793,7 +793,7 @@ GameObject:
   - component: {fileID: 591558111}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -840,6 +840,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   orientation: {fileID: 2125822165}
+  attackRef: {fileID: 591558110}
 --- !u!54 &591558109
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -886,6 +887,7 @@ MonoBehaviour:
   timeText: {fileID: 428369594}
   GameOverPanel: {fileID: 1284835971}
   restartButton: {fileID: 1339759871}
+  orientation: {fileID: 2125822165}
 --- !u!143 &591558111
 CharacterController:
   m_ObjectHideFlags: 0
@@ -2425,7 +2427,7 @@ GameObject:
   - component: {fileID: 2084546771}
   m_Layer: 0
   m_Name: SpawnPoint
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

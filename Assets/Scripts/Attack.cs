@@ -5,13 +5,13 @@ using UnityEngine.SceneManagement;
 
 public class Attack : MonoBehaviour
 {
-    public Transform bulletSpawnPoint;
     public GameObject bulletPrefab;
     public TMP_Text ammoText;
     public TMP_Text pointsText;
     public TMP_Text timeText;
     public GameObject GameOverPanel;
     public GameObject restartButton;
+    public Transform orientation;
 
     private int maxAmmo = 25;
     private int currentAmmo;
@@ -24,6 +24,8 @@ public class Attack : MonoBehaviour
 
     private bool isGameOver = false;
     private float bulletLifetime = 5.0f;
+
+    private float spawnDistance = 0.45f;
 
     private void Start()
     {
@@ -63,12 +65,13 @@ public class Attack : MonoBehaviour
     {
         if (currentAmmo <= 0) return;
 
-        var bullet = Instantiate(bulletPrefab, bulletSpawnPoint.position, bulletSpawnPoint.rotation);
+        Vector3 bulletSpawn = orientation.position + orientation.forward * spawnDistance;
+        var bullet = Instantiate(bulletPrefab, bulletSpawn, orientation.rotation);
 
         Rigidbody bulletRb = bullet.GetComponent<Rigidbody>();
         if (bulletRb != null)
         {
-            bulletRb.velocity = bulletSpawnPoint.forward * bulletSpeed;
+            bulletRb.velocity = orientation.forward * bulletSpeed;
         }
         else
         {
@@ -132,7 +135,7 @@ public class Attack : MonoBehaviour
         }
     }
 
-    private void EndGame(string message)
+    public void EndGame(string message)
     {
         isGameOver = true;
 

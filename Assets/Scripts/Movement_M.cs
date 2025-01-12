@@ -1,4 +1,5 @@
 using System;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -28,6 +29,8 @@ public class Player : MonoBehaviour
     private Vector3 moveDirection;
 
     private Rigidbody rb;
+
+    public Attack attackRef;
 
     private void Start()
     {
@@ -107,7 +110,14 @@ public class Player : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Water"))
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            if (attackRef != null)
+            {
+                attackRef.EndGame("GAME OVER");
+            }
+            else
+            {
+                Debug.LogError("Attack script reference is missing!");
+            }
         }
     }
 }
